@@ -1,0 +1,40 @@
+﻿@model PersonelPlakaTakibi.Models.Personel
+
+@{
+    ViewData["Title"] = "Sil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h1>Personel Bilgisini Silmek İstediğinizden Emin Misiniz?</h1>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Ad
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PersonelAd)
+            </dd>
+            <dt class="col-sm-2">
+                Soyad
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PersonelSoyad)
+            </dd>
+            <dt class="col-sm-2">
+                Telefon Numarası
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PersonelTelNo)
+            </dd>            
+        </dl>
+        <form asp-action="Sil">
+            <input type="hidden" asp-for="PersonelId" />
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            <a class="btn btn-success" asp-area="" asp-controller="Personel" asp-action="Index">Personel Listesi</a>
+        </form>
+    </div>
+</div>
+
+
+

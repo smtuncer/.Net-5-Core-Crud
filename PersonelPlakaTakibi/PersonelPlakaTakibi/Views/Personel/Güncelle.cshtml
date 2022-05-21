@@ -1,0 +1,57 @@
+﻿@model PersonelPlakaTakibi.Models.Personel
+@{
+    ViewData["Title"] = "Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Personel Güncelle</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Güncelle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PersonelId" />
+            <div class="form-group">
+                Ad
+                <input asp-for="PersonelAd" class="form-control" />
+                <span asp-validation-for="PersonelAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Soyad
+                <input asp-for="PersonelSoyad" class="form-control" />
+                <span asp-validation-for="PersonelSoyad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Telefon Numarası
+                <input asp-for="PersonelTelNo" class="form-control" />
+                <span asp-validation-for="PersonelTelNo" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PersonelAracVarMi" /> Araç Verildi Mi?
+                </label>
+            </div>
+            <div class="form-group">
+                Araç Plakası
+                <input asp-for="PersonelAracPlakasi" class="form-control" />
+                <span asp-validation-for="PersonelAracPlakasi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Araç Özellikleri
+                <input asp-for="PersonelAracÖzellikleri" class="form-control" />
+                <span asp-validation-for="PersonelAracÖzellikleri" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Personel Güncelle" class="btn btn-info" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success" asp-area="" asp-controller="Personel" asp-action="Index">Personel Listesi</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

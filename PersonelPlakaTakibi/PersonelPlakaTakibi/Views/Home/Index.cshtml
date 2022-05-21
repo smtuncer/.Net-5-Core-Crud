@@ -1,0 +1,89 @@
+﻿@model IEnumerable<PersonelPlakaTakibi.Models.Personel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2 style="text-align:center">Personel Araç Takip Listesi</h2>
+<table id="myTable" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Ad
+            </th>
+            <th>
+                Soyad
+            </th>
+            <th>
+                Telefon Numarası
+            </th>
+            <th>
+                Araç Var Mı?
+            </th>
+            <th>
+                Araç Plakası
+            </th>
+             <th>
+                Araç Özellikleri
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonelAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonelSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonelTelNo)
+                </td>
+                <td>
+                    @if (item.PersonelAracVarMi==true)
+                    {
+                        <button class="btn btn-warning btn-block" disabled><b>Var</b></button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-secondary btn-block" disabled><b>Yok</b></button>
+                    }
+                </td>
+                <td>
+                    @if (item.PersonelAracPlakasi==null)
+                    {
+                        <button class="btn btn-secondary btn-block"disabled><b>Yok</b></button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-warning btn-block"disabled><b>@item.PersonelAracPlakasi</b></button>
+                    }
+                    
+                </td>
+                <td>
+                     @if (item.PersonelAracÖzellikleri==null)
+                    {
+                        <button class="btn btn-secondary btn-block"disabled><b>Yok</b></button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-warning btn-block"disabled><b>@item.PersonelAracÖzellikleri</b></button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+                }
+            });
+        });
+    </script>
+}

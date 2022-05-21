@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
+        <h3 class="tittle">GİRİŞ FORMU</h3><br />
+        <form method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1 mb-2">Kullanıcı Adı</label>
+                <input type="text" class="form-control" name="AdminUsername" required="">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1 mb-2">Şifre</label>
+                <input type="password" class="form-control" name="AdminPassword">
+            </div>
+            <div class="form-check mb-2">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Beni Hatırla</label>
+            </div>
+            <button type="submit" class="btn btn-primary submit mb-4">Giriş</button>            
+        </form>
+    </div>
+    <div class="col-3">
+    </div>
+</div>
+
